@@ -25,7 +25,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.02em}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--pt);outline-offset:3px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 1.25rem}
+.wrap{max-width:95%;margin:0 auto;padding:0 1.25rem}
 section{padding:4.5rem 0}
 .eyebrow{display:inline-block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pt);border:1px solid color-mix(in srgb,var(--pri) 30%,transparent);background:color-mix(in srgb,var(--pri) 12%,var(--card));padding:.2rem .7rem;border-radius:99px;margin-bottom:1rem}
 .head{text-align:center;max-width:680px;margin:0 auto 2.75rem}
@@ -36,12 +36,12 @@ section{padding:4.5rem 0}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}.btn.ghost:hover{border-color:var(--pt);color:var(--pt)}
 /* nav */
 header{position:sticky;top:0;z-index:50;padding:.7rem 0;pointer-events:none}
-.nav{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;height:60px;width:calc(100% - 2.5rem);max-width:1160px;margin:0 auto;padding:0 1rem;border-radius:99px;border:1px solid transparent;transition:max-width .5s cubic-bezier(.4,0,.2,1),background .3s,box-shadow .3s,border-color .3s}
-.nav.scrolled{max-width:max(70vw,720px);background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 12px 32px -12px rgba(15,118,110,.35)}
+.nav{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;height:60px;width:100%;max-width:95%;margin:0 auto;padding:0 1rem;border-radius:99px;border:1px solid transparent;transition:max-width .5s cubic-bezier(.4,0,.2,1),background .3s,box-shadow .3s,border-color .3s}
+.nav.scrolled{max-width:max(80vw,720px);background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 12px 32px -12px rgba(15,118,110,.35)}
 .logo{font-weight:700;display:flex;align-items:center;gap:.5rem}
 .logo i{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--pri),var(--pri2));display:grid;place-items:center;color:#fff;font-style:normal;font-size:.85rem}
 .links{display:flex;gap:1.5rem;list-style:none;font-size:.92rem}
-.links a{color:var(--mute)}.links a:hover{color:var(--ink)}
+.links a{color:var(--mute);color: var(--mute);text-transform: uppercase;font-weight: 500;letter-spacing: 2px;}.links a:hover{color:var(--ink)}
 .burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:.5rem;width:40px;height:40px;font-size:1.1rem;cursor:pointer}
 .right{display:flex;align-items:center;gap:.6rem}
 .tgl{display:flex;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:3px;gap:2px}
@@ -49,8 +49,8 @@ header{position:sticky;top:0;z-index:50;padding:.7rem 0;pointer-events:none}
 .tgl button.on{background:linear-gradient(135deg,var(--pri),#0d9488);color:#fff}
 @media(max-width:900px){.links{pointer-events:auto;position:absolute;top:74px;left:1.25rem;right:1.25rem;background:var(--card);border:1px solid var(--line);border-radius:1rem;box-shadow:0 16px 40px -12px rgba(0,0,0,.25);flex-direction:column;gap:0;display:none;overflow:hidden}.links.open{display:flex}.links a{display:block;padding:1rem 1.25rem}.burger{display:block}.nav .btn.cta{display:none}.nav.scrolled{max-width:calc(100% - 1.5rem)}.tgl button{padding:.35rem .6rem}.tgl button span{display:none}}
 /* hero */
-.hero{padding-top:2rem}
-.hero-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:1.5rem;padding:clamp(1.5rem,5vw,3.5rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;background:linear-gradient(135deg,color-mix(in srgb,var(--pri2) 16%,var(--card)),var(--card) 55%,color-mix(in srgb,var(--acc) 16%,var(--card)))}
+.hero{padding:0}
+.hero-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:0px 0px 12px 12px;padding:clamp(1.5rem,5vw,3.5rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;background:linear-gradient(135deg,color-mix(in srgb,var(--pri2) 16%,var(--card)),var(--card) 55%,color-mix(in srgb,var(--acc) 16%,var(--card)))}
 .hero-card::before{content:"";position:absolute;inset:0;background-image:radial-gradient(color-mix(in srgb,var(--pt) 22%,transparent) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(120deg,#000,transparent 60%);pointer-events:none}
 .hero-card>*{position:relative}
 .hero h1{font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.05;margin-bottom:1rem}
@@ -72,20 +72,27 @@ header{position:sticky;top:0;z-index:50;padding:.7rem 0;pointer-events:none}
 @keyframes slide{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.track{animation:none}.rv{opacity:1!important;transform:none!important}}
 /* tints */
-.tint-a{background:linear-gradient(180deg,color-mix(in srgb,var(--pri2) 13%,var(--bg)),var(--bg))}
+.tint-a{background:linear-gradient(180deg,color-mix(in srgb,var(--pri2) 13%,var(--bg)),var(--bg));box-shadow: 0 0px 10px rgb(15 118 110 / 14%);}
 .tint-b{background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 13%,var(--bg)),var(--bg))}
 .tint-c{background:linear-gradient(180deg,color-mix(in srgb,#8b5cf6 12%,var(--bg)),var(--bg))}
 /* work (browser-frame cards: replace .ph with an <img> screenshot) */
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
 .work{background:var(--card);border:1px solid var(--line);border-radius:1.1rem;overflow:hidden;transition:transform .3s,box-shadow .3s;display:block}
 .work:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.14)}
-.shot{height:230px;overflow:hidden}
-.shot .bar{height:30px;background:rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;padding:0 12px}
-.shot .bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.65)}
-.shot .ph{height:calc(100% - 30px);display:grid;place-items:center;color:#fff;font-family:Georgia,serif;font-size:1.6rem;text-align:center;padding:1rem}
-.shot img{display:block;width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top}
-.g1{background:linear-gradient(135deg,#7c3aed,#db2777)}.g2{background:linear-gradient(135deg,#0f766e,#0ea5e9)}.g3{background:linear-gradient(135deg,#f59e0b,#ef4444)}
-.work .body{padding:1.4rem}
+.shot{position:relative;height:270px;overflow:hidden}
+
+/* desktop screenshot fills the colour block */
+.shot .desk{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.work:hover .shot .desk{transform:scale(1.04)}
+
+/* mobile screenshot sits on top of the desktop one */
+.shot .mob{position:absolute;right:16px;bottom:14px;width:74px;aspect-ratio:9/19;border:3px solid #111;border-radius:14px;overflow:hidden;background:#111;box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.shot .mob img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* keep your existing gradients (they show while images load) */
+.g1{background:linear-gradient(135deg,#7c3aed,#db2777)}
+.g2{background:linear-gradient(135deg,#0f766e,#0ea5e9)}
+.g3{background:linear-gradient(135deg,#f59e0b,#ef4444)}.work .body{padding:1.4rem}
 .meta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--mute);margin-bottom:.4rem}
 .work h3{font-size:1.4rem;margin-bottom:.4rem}
 .work p{color:var(--mute);font-size:.94rem}
@@ -195,6 +202,14 @@ footer{margin-top:3rem;background:linear-gradient(160deg,#0b1f1e,#0f3d39 60%,#13
 .nav.scrolled .logo img {
     width: 60px;
 }
+@media(max-width:600px) {
+section {
+  padding:2.5rem 0;
+}
+.wrap {
+    padding: 0 10px;
+}
+}
 @media(max-width:425px) {
 .nav.scrolled .logo img {
     width: 45px;
@@ -209,7 +224,7 @@ footer{margin-top:3rem;background:linear-gradient(160deg,#0b1f1e,#0f3d39 60%,#13
   <img style="display: none;" class="logo-for-dark" src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/white-rajan-logos.png" alt="" width="70" height="auto">
 </a>
   <ul class="links" id="links">
-    <li><a href="#portfolio">Work</a></li><li><a href="#about">About</a></li><li><a href="#process">Process</a></li><li><a href="#services">Services</a></li><li><a href="#skills">Skills</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#portfolio">Work</a></li><li><a href="#about">About Me</a></li><li><a href="#process">Process</a></li><li><a href="#services">Services</a></li><li><a href="#skills">Skills</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
   </ul>
   <div class="right">
     <div class="tgl" role="group" aria-label="Theme"><button data-t="light" aria-label="Light mode">☀️<span>Light</span></button><button data-t="dark" aria-label="Dark mode">🌙<span>Dark</span></button></div>
@@ -219,7 +234,7 @@ footer{margin-top:3rem;background:linear-gradient(160deg,#0b1f1e,#0f3d39 60%,#13
 </div></header>
 
 <main id="top">
-<section class="hero"><div class="wrap"><div class="hero-card">
+<section class="hero"><div class="banner-wrap"><div class="hero-card">
   <div>
     <h1>Let’s build a Shopify store <span>you’re proud of</span></h1>
     <p class="lead">I build, customize, and scale Shopify stores for merchants worldwide — from theme development to custom apps and store optimization.</p>
@@ -228,23 +243,76 @@ footer{margin-top:3rem;background:linear-gradient(160deg,#0b1f1e,#0f3d39 60%,#13
   </div>
   <div class="portrait">
     <!-- YOUR PHOTO: delete the RP span and use <img src="images/rajan.jpg" alt="Rajan Parashar"> -->
-    <span class="mono">RP</span>
+    <span class="mono">
+      <img src="https://github.com/rajanparashar/rajanparashar.github.io/blob/main/myphoto.jpg?raw=true" alt="AP">
+    </span>
     <div class="badge"><b><span class="dot"></span>Available for projects</b>India · Serving clients worldwide</div>
   </div>
 </div></div>
 <div class="marquee" aria-hidden="true"><div class="track" id="track">
-  <span>Homecraft Textiles</span><span>Candrone</span><span>House of Chikankari</span><span>Josephinen</span><span>Saundh</span><span>Fleeky</span><span>House of Kosha</span><span>WeatherTech</span>
+  <span>HOMECRAFT TEXTILES</span><span>CANDRONE</span><span>HOUSE OF CHIKANKARI</span><span>JOSEPHINEN</span><span>SAUNDH</span><span>FLEEKY</span><span>HOUSE OF KOSHA</span><span>WEATHERTECH</span><span>UMAMI SQUARE</span><span>L.CREDI</span>
 </div></div></section>
 
 <section id="portfolio" class="tint-a"><div class="wrap">
-  <div class="head rv"><span class="eyebrow">Portfolio</span><h2>Recent Work</h2><p>A look at recent Shopify projects, from custom themes to performance and conversion.</p></div>
-  <div class="grid2">
-    <!-- SCREENSHOTS: replace each <div class="ph">…</div> with <img src="images/store-1.jpg" alt="Store name homepage" loading="lazy">; set href to the live store -->
-    <a href="#contact" class="work rv"><div class="shot g1"><div class="bar"><i></i><i></i><i></i></div><div class="ph">Textiles Brand</div></div><div class="body"><div class="meta"><span>Australia</span><span>Shopify</span></div><h3>Textiles Brand</h3><p>One of Australia’s largest online fabric and home decor stores, with 20,000+ products across apparel, curtaining, and craft categories.</p><div class="tags"><span class="tag">Large catalog</span><span class="tag">Home decor</span><span class="tag">Australia</span></div><span class="go">View project →</span></div></a>
-    <a href="#contact" class="work rv"><div class="shot g2"><div class="bar"><i></i><i></i><i></i></div><div class="ph">Drone Brand</div></div><div class="body"><div class="meta"><span>Canada</span><span>Shopify</span></div><h3>Drone Brand</h3><p>An enterprise Shopify store for a Canadian drone technology sales and training company, serving thousands of professional and consumer clients.</p><div class="tags"><span class="tag">Enterprise</span><span class="tag">Drone tech</span><span class="tag">Canada</span></div><span class="go">View project →</span></div></a>
-    <a href="#contact" class="work rv"><div class="shot g3"><div class="bar"><i></i><i></i><i></i></div><div class="ph">Cosmetic Brand</div></div><div class="body"><div class="meta"><span>India</span><span>Shopify</span></div><h3>Cosmetic Brand</h3><p>A natural, kids’ hair care D2C brand built on Shopify — clean product storytelling, subscription-friendly bundles, and a smooth checkout flow.</p><div class="tags"><span class="tag">D2C</span><span class="tag">Kids hair care</span><span class="tag">India</span></div><span class="go">View project →</span></div></a>
+  <div class="head rv">
+    <span class="eyebrow">Portfolio</span>
+    <h2>Recent Work</h2>
+    <p>A look at recent Shopify projects, from custom themes to performance and conversion.</p>
   </div>
-  <div class="center"><a href="#contact" class="btn">View More…</a></div>
+
+  <div class="grid2">
+
+    <!-- Card 1 -->
+    <a href="#contact" target="_blank" rel="noopener" class="work rv">
+      <div class="shot g1">
+        <img class="desk" src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/homecraft-desk.png" alt="Cosmetic Brand store on desktop" loading="lazy" width="1440" height="900">
+        <div class="mob"><img src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/homecraft-mob.jpg" alt="Cosmetic Brand store on mobile" loading="lazy" width="390" height="844"></div>
+      </div>
+      <div class="body">
+        <div class="meta"><span>Australia</span><span>Shopify</span></div>
+        <h3>Textiles Brand</h3>
+        <p>One of Australia’s largest online fabric and home decor stores, with 20,000+ products across apparel, curtaining, and craft categories.</p>
+        <div class="tags"><span class="tag">Large catalog</span><span class="tag">Home decor</span><span class="tag">Australia</span></div>
+        <span class="go">View project →</span>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="#contact" target="_blank" rel="noopener" class="work rv">
+      <div class="shot g2">
+        <img class="desk" src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/drone-desk.png" alt="Drone Brand store on desktop" loading="lazy" width="1440" height="900">
+        <div class="mob"><img src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/drone-mob.png" alt="Drone Brand store on mobile" loading="lazy" width="390" height="844"></div>
+      </div>
+      <div class="body">
+        <div class="meta"><span>Canada</span><span>Shopify</span></div>
+        <h3>Drone Brand</h3>
+        <p>An enterprise Shopify store for a Canadian drone technology sales and training company, serving thousands of professional and consumer clients.</p>
+        <div class="tags"><span class="tag">Enterprise</span><span class="tag">Drone tech</span><span class="tag">Canada</span></div>
+        <span class="go">View project →</span>
+      </div>
+    </a>
+
+    <!-- Card 3 (set href to the live store URL) -->
+    <a href="#contact" class="work rv">
+      <div class="shot g3">
+        <img class="desk" src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/saundh-desk.png" alt="Cosmetic Brand store on desktop" loading="lazy" width="1440" height="900">
+        <div class="mob"><img src="https://raw.githubusercontent.com/rajanparashar/rajanparashar.github.io/refs/heads/main/saundh-mob.png" alt="Cosmetic Brand store on mobile" loading="lazy" width="390" height="844"></div>
+      </div>
+      <div class="body">
+        <div class="meta"><span>India</span><span>Shopify</span></div>
+        <h3>Clothing Brand</h3>
+        <p>A contemporary Indian ethnic and occasion wear label on Shopify, with kurta sets, lehengas, sarees and co-ords for women, men and kids, organized by occasion, fabric and colour for easy browsing.</p>
+        <div class="tags"><span class="tag">Fashion</span><span class="tag">Ethnic wear</span><span class="tag">India</span></div>
+        <span class="go">View project →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="center">
+    <p class="mute" style="margin-bottom:1rem">Want to see more of my work?</p>
+    <a href="#contact" class="btn">Contact me</a>
+  </div>
 </div></section>
 
 <section id="about"><div class="wrap about-grid">
@@ -322,7 +390,7 @@ footer{margin-top:3rem;background:linear-gradient(160deg,#0b1f1e,#0f3d39 60%,#13
   <div class="head rv"><span class="eyebrow">Skills</span><h2>Skills & Expertise</h2></div>
   <div class="grid3">
     <div class="card rv"><h3>Shopify Platform</h3><ul><li>✓ Theme Development</li><li>✓ Liquid Templating</li><li>✓ App Development</li><li>✓ API Integration</li><li>✓ Metafields & Custom Data</li></ul></div>
-    <div class="card rv"><h3>Frontend</h3><ul><li>✓ HTML / CSS / JavaScript</li><li>✓ React JS & Vue.js</li><li>✓ Responsive Design</li><li>✓ Performance Optimization</li><li>✓ Accessibility (A11y)</li></ul></div>
+    <div class="card rv"><h3>Frontend</h3><ul><li>✓ HTML / CSS / JavaScript</li><li>✓ React JS & Vue.js</li><li>✓ Responsive Design</li><li>✓ Performance Optimization</li><li>✓ Accessibility</li></ul></div>
     <div class="card rv"><h3>Other Services</h3><ul><li>✓ SEO & Analytics</li><li>✓ Payment Integration</li><li>✓ Shipping Configuration</li><li>✓ Migration Support</li><li>✓ Troubleshooting & Support</li></ul></div>
   </div>
 </div></section>
@@ -377,7 +445,7 @@ footer{margin-top:3rem;background:linear-gradient(160deg,#0b1f1e,#0f3d39 60%,#13
     <div><h4>Services</h4><ul><li><a href="#services">Store Setup</a></li><li><a href="#services">Theme Development</a></li><li><a href="#services">Custom Apps</a></li><li><a href="#services">Store Optimization</a></li><li><a href="#services">Consultation</a></li></ul></div>
     <div><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/in/rajanparashar" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:rajanshopify@gmail.com">rajanshopify@gmail.com</a></li><li>India</li></ul></div>
   </div>
-  <div class="fbot"><span>© 2026 Rajan Parashar. All rights reserved.</span><span>Designed & Developed by Rajan Parashar.</span></span><a href="#top">Back to top ↑</a></div>
+  <div class="fbot"><span>© 2026 Rajan Parashar. All rights reserved.</span><span>Designed & Developed by Rajan Parashar</span></span><a href="#top">Back to top ↑</a></div>
 </div></footer>
 
 <script>
